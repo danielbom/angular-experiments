@@ -1,0 +1,36 @@
+<div class="flex flex-col h-screen items-center justify-center bg-primary">
+  <h1 class="text-xl font-bold text-teal-600 pb-4">Register</h1>
+  <form class="flex flex-col bg-white p-10 w-80 gap-5 mt-2 rounded">
+    <input
+      class="p-3 border-b border-gray-400"
+      type="text"
+      placeholder="username"
+      required
+    />
+    <input
+      class="p-3 border-b border-gray-400"
+      type="email"
+      placeholder="email"
+      required
+    />
+    <input
+      class="p-3 border-b border-gray-400"
+      type="password"
+      placeholder="password"
+      required
+    />
+    <button class="p-3 border-none bg-teal-600 pointer text-white">
+      Register
+    </button>
+    <p class="text-red-500 text-center">This is an error!</p>
+    <span class="text-sm text-center">
+      Do you have an account?
+      <a
+        routerLink="/login"
+        class="text-blue-600 underline hover:opacity-75 ease-in-out duration-100"
+      >
+        Login
+      </a>
+    </span>
+  </form>
+</div>

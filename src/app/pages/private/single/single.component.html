@@ -1,0 +1,108 @@
+<div class="flex gap-6">
+  <!-- content -->
+  <div class="flex-5 flex flex-col gap-7">
+    <!-- cover image -->
+    <img
+      src="https://images.pexels.com/photos/403571/pexels-photo-403571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      alt="cover image"
+      [style.height.px]="300"
+      class="w-full object-cover"
+    />
+    <!-- user -->
+    <div class="flex align-center gap-3">
+      <img
+        src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1600"
+        alt="profile image"
+        [style.width.px]="50"
+        [style.height.px]="50"
+        class="rounded-full object-cover"
+      />
+      <div class="font-sm">
+        <span class="font-bold">John</span>
+        <p>Posted 2 days ago</p>
+      </div>
+      <!-- write buttons -->
+      <div class="flex gap-1">
+        <a routerLink="/write" [queryParams]="{ edit: 2 }">
+          <img src="assets/edit.png" alt="edit icon" class="w-5 h-5 pointer" />
+        </a>
+        <a routerLink="/write" [queryParams]="{ delete: 2 }">
+          <img
+            src="assets/delete.png"
+            alt="delete icon"
+            class="w-5 h-5 pointer"
+          />
+        </a>
+      </div>
+    </div>
+    <!-- title -->
+    <h1 class="text-5xl font-semibold text-gray-800">
+      Lorem ipsum dolor sit amet
+    </h1>
+    <p class="text-justify leading-7">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce et dui ac
+      justo volutpat egestas. Nunc porttitor risus vitae enim hendrerit, non
+      vulputate magna maximus. Interdum et malesuada fames ac ante ipsum primis
+      in faucibus. Aliquam tincidunt, metus nec viverra ullamcorper, nibh ligula
+      elementum tortor, ut porttitor ante tortor eget est. Sed sed eros arcu.
+      Integer ut massa tincidunt tortor consectetur viverra ac eu lectus. Mauris
+      efficitur ipsum vel tellus luctus, et feugiat metus efficitur. Morbi eget
+      fringilla mauris. Quisque tempor bibendum lectus, sit amet euismod ipsum
+      sagittis vitae. Pellentesque a porttitor felis.
+      <br />
+      <br />
+      Maecenas sodales mi imperdiet elit bibendum luctus. Ut luctus feugiat
+      lorem, finibus dapibus nibh lacinia id. Nam tristique erat at auctor
+      blandit. Curabitur ullamcorper dui ut purus finibus, sit amet vulputate
+      arcu tincidunt. Suspendisse interdum augue enim, vehicula facilisis purus
+      eleifend quis. Aliquam nec lorem vitae lorem hendrerit ornare ut sit amet
+      nibh. Aliquam nec cursus urna. Aenean aliquam ullamcorper metus eleifend
+      elementum. Aliquam viverra lectus ex, a vestibulum dolor porttitor ac. In
+      semper egestas orci sit amet cursus. Morbi in rhoncus urna.
+      <br />
+      <br />
+      Nam lorem mauris, condimentum et lacus nec, aliquam finibus diam. Donec ac
+      tristique justo. Donec vehicula pulvinar ligula, quis porttitor dui
+      maximus vitae. Nunc leo risus, elementum sit amet nisl at, interdum
+      euismod nulla. Pellentesque quis est eleifend, pharetra nisi in, convallis
+      neque. Nam at felis laoreet, porttitor nisl id, suscipit velit. Aenean
+      vehicula gravida accumsan. Sed blandit, enim ut bibendum malesuada, orci
+      nibh varius dolor, vitae condimentum sem diam quis augue. Sed ut lacinia
+      nunc, vel scelerisque elit. Curabitur ultrices nulla eros, ut venenatis
+      lectus malesuada in. Nam dictum dolor dui, ac consequat tortor aliquam eu.
+      <br />
+      <br />
+      Curabitur ut laoreet dolor. Donec pharetra efficitur lectus, ac feugiat
+      arcu gravida a. Sed nec lorem justo. Nam vulputate dapibus tellus, et
+      dignissim felis luctus finibus. Curabitur congue ligula vel condimentum
+      luctus. Maecenas nisi ante, feugiat sit amet iaculis sit amet, pretium a
+      mi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent
+      consequat elit ut tortor cursus luctus.
+      <br />
+      <br />
+      Nunc fringilla porttitor quam, non efficitur enim convallis in. Sed
+      aliquam tristique lorem, vitae porta urna pretium sit amet. Sed ut tortor
+      elit. Proin non turpis vestibulum, vestibulum est a, facilisis felis.
+      Proin nec sem ac magna maximus imperdiet non at magna. Praesent
+      condimentum tortor id nunc porttitor sodales. Sed tincidunt metus vel
+      velit blandit, eget efficitur lacus convallis. Mauris tempus, erat sed
+      aliquam euismod, mauris odio feugiat velit, vitae luctus massa orci eget
+      ipsum. Pellentesque vel lorem nibh. Proin vel mauris vel felis bibendum
+      iaculis dignissim cursus urna.
+    </p>
+  </div>
+  <!-- menu -->
+  <div class="flex-2 flex flex-col gap-6">
+    <h1 class="text-lg text-gray-600">Other posts you may like</h1>
+    <div *ngFor="let post of posts">
+      <img
+        [src]="post.image"
+        alt="post image"
+        [style.height.px]="200"
+        class="w-full object-cover"
+      />
+      <h2>{{ post.title }}</h2>
+      <button appButton>Read More</button>
+    </div>
+  </div>
+</div>

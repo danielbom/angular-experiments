@@ -1,0 +1,62 @@
+<div class="flex gap-4 pt-5 flex-col sm:flex-row">
+  <!-- content -->
+  <div class="md:flex-5 flex flex-col gap-3">
+    <input
+      name="title"
+      id="title"
+      placeholder="title"
+      [(ngModel)]="post.title"
+      class="p-2 w-full border border-gray-300"
+    />
+    <div [style.height.px]="400">
+      <quill-editor
+        [(ngModel)]="post.content"
+        class="h-5/6 -m-b-2"
+      ></quill-editor>
+    </div>
+  </div>
+  <!-- menu -->
+  <div class="md:flex-2 flex flex-col gap-4 text-sm text-gray-600">
+    <!-- publish -->
+    <div
+      class="flex-1 p-3 flex flex-col justify-between gap-3 border border-gray-300"
+    >
+      <h1 class="text-lg font-semibold">Publish</h1>
+      <span>
+        <b>Status:</b>
+        Draft
+      </span>
+      <span>
+        <b>Visibility:</b>
+        Draft
+      </span>
+      <input class="hidden" type="file" name="file" id="file" />
+      <label for="file" class="underline cursor-pointer">Upload image</label>
+      <div class="flex justify-between">
+        <button appButton>Save as draft</button>
+        <button appButton variant="filled">Update</button>
+      </div>
+    </div>
+
+    <!-- category -->
+    <div
+      class="flex-1 p-3 flex flex-col justify-between gap-3 border border-gray-300"
+    >
+      <h1 class="text-lg font-semibold">Category</h1>
+      <div *ngFor="let category of categories" class="text-teal-600">
+        <input
+          type="radio"
+          name="category"
+          [value]="category.value"
+          [id]="'category-' + category.value"
+        />
+        <label
+          [for]="'category-' + category.value"
+          class="text-teal-600 w-full"
+        >
+          {{ category.label }}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>

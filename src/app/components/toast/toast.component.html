@@ -1,0 +1,11 @@
+<div id="toast">
+  <p
+    *ngFor="let toast of toasts"
+    [ngClass]="toast.type"
+    class="fade-in-out"
+    (click)="onClickToast(toast)"
+  >
+    {{ toast.message }}
+  </p>
+  <div></div>
+</div>
