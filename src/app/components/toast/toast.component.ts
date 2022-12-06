@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core'
-import { fromEvent, Subject } from 'rxjs'
-import { share, takeUntil } from 'rxjs/operators'
+import { Subject } from 'rxjs'
+import { takeUntil } from 'rxjs/operators'
 import { ToastService, Toast } from './toast.service'
 
 @Component({

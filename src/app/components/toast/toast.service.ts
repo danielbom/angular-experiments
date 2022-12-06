@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { BehaviorSubject, Observable, Subject, of } from 'rxjs'
-import { share, mergeMap, scan, concat, delay, tap } from 'rxjs/operators'
+import { mergeMap, scan, concat, delay } from 'rxjs/operators'
 import { ToastId, Toast, ToastAdd, ToastAction, ToastState } from './types'
 
 import { generateId } from 'src/app/functions/generateId'
@@ -17,7 +17,6 @@ export class ToastService {
   private _store$ = this._action$.pipe(
     mergeMap((action) => this.addAutoExpire(action)),
     scan(this.reducer, INITIAL_STATE),
-    share(),
   )
   private _state$ = new BehaviorSubject(INITIAL_STATE)
 
