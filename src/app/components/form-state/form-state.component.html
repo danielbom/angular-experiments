@@ -1,0 +1,77 @@
+<div *ngIf="show" class="inset-0 absolute pointer-events-none">
+  <div
+    class="rounded-lg shadow-lg relative sm:w-8/12 md:w-7/12 lg:w-6/12 xl:w-5/12 bg-white pointer-events-auto"
+    appDrag
+  >
+    <div
+      class="flex items-start justify-between p-5 border-b border-solid border-slate-300 rounded-t bg-gray-100"
+      appDragHandle
+    >
+      <h3 class="text-3xl font-semibold">Form control state</h3>
+    </div>
+
+    <ng-container *ngTemplateOutlet="body"></ng-container>
+  </div>
+</div>
+
+<ng-template #body>
+  <div class="grid grid-cols-3 p-6" *ngIf="control">
+    <ul class="col-span-3 bg-danger">
+      <li *ngFor="let error of errors" class="text-white">
+        <b>{{ error.name }}</b>
+      </li>
+    </ul>
+
+    <div class="col-span-3 flex gap-2">
+      <b>value:</b>
+      <div class="text-blue-500">
+        <b>{{ control.value | json }}</b>
+      </div>
+    </div>
+
+    <app-item-status label="valid" [value]="control.valid">
+    </app-item-status>
+
+    <app-item-status label="invalid" [value]="control.invalid">
+    </app-item-status>
+
+    <div class="flex gap-2">
+      <b>status:</b>
+      <div
+        class="col-3"
+        [ngClass]="{
+          'text-green-500': control.status === 'VALID',
+          'text-red-500': control.status === 'INVALID',
+          'text-yellow-500': control.status === 'PENDING'
+        }"
+      >
+        {{ control.status }}
+      </div>
+    </div>
+
+    <app-item-status label="pending" [value]="control.pending">
+    </app-item-status>
+
+    <app-item-status label="pristine" [value]="control.pristine">
+    </app-item-status>
+
+    <app-item-status label="dirty" [value]="control.dirty">
+    </app-item-status>
+
+    <app-item-status label="touched" [value]="control.touched">
+    </app-item-status>
+
+    <app-item-status label="untouched" [value]="control.untouched">
+    </app-item-status>
+
+    <app-item-status label="disabled" [value]="control.disabled">
+    </app-item-status>
+
+    <div class="col-span-3">
+      <b>errors:</b>
+      <div class="text-red-500">
+        <pre>{{ control.errors | json }}</pre>
+      </div>
+    </div>
+  </div>
+</ng-template>
