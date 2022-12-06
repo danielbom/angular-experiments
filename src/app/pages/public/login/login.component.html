@@ -1,15 +1,24 @@
 <div class="flex flex-col h-screen items-center justify-center bg-[#b9e7e7]">
   <h1 class="text-xl font-bold text-teal-600 pb-4">Login</h1>
-  <form class="flex flex-col bg-white p-10 w-80 gap-5 mt-2 rounded">
+  <form
+    class="flex flex-col bg-white p-10 w-80 gap-5 mt-2 rounded"
+    [formGroup]="formGroup"
+  >
     <input
+      formControlName="username"
       class="p-3 border-b border-gray-400"
       type="text"
+      name="username"
       placeholder="username"
+      autocomplete="on"
     />
     <input
+      formControlName="password"
       class="p-3 border-b border-gray-400"
       type="password"
+      name="password"
       placeholder="password"
+      autocomplete="on"
     />
     <button class="p-3 border-none bg-teal-600 pointer text-white">
       Login
@@ -26,3 +35,5 @@
     </span>
   </form>
 </div>
+
+<app-form-state [control]="formGroup"></app-form-state>

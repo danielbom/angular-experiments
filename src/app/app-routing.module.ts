@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router'
 import { LayoutComponent } from './components/layout/layout.component'
 
 import { HomeComponent } from './pages/private/home/home.component'
-import { WriteComponent } from './pages/private/write/write.component'
 import { SingleComponent } from './pages/private/single/single.component'
 
 import { LoginComponent } from './pages/public/login/login.component'
@@ -34,7 +33,10 @@ export const routes: Routes = [
       },
       {
         path: 'write',
-        component: WriteComponent,
+        loadChildren: () =>
+          import('./pages/private/write/write.module').then(
+            (m) => m.WriteModule,
+          ),
       },
     ],
   },
