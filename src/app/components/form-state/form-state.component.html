@@ -16,29 +16,23 @@
 
 <ng-template #body>
   <div class="grid grid-cols-3 p-6" *ngIf="control">
-    <ul class="col-span-3 bg-danger">
-      <li *ngFor="let error of errors" class="text-white">
-        <b>{{ error.name }}</b>
-      </li>
-    </ul>
-
-    <div class="col-span-3 flex gap-2">
+    <div class="col-span-3 flex gap-2" (click)="logForm()">
       <b>value:</b>
-      <div class="text-blue-500">
-        <b>{{ control.value | json }}</b>
-      </div>
+      <b class="text-blue-500">
+        {{ control.value | json }}
+      </b>
     </div>
 
-    <app-item-status label="valid" [value]="control.valid">
-    </app-item-status>
+    <app-item-status label="valid" [value]="control.valid"></app-item-status>
 
-    <app-item-status label="invalid" [value]="control.invalid">
-    </app-item-status>
+    <app-item-status
+      label="invalid"
+      [value]="control.invalid"
+    ></app-item-status>
 
     <div class="flex gap-2">
       <b>status:</b>
-      <div
-        class="col-3"
+      <span
         [ngClass]="{
           'text-green-500': control.status === 'VALID',
           'text-red-500': control.status === 'INVALID',
@@ -46,32 +40,44 @@
         }"
       >
         {{ control.status }}
-      </div>
+      </span>
     </div>
 
-    <app-item-status label="pending" [value]="control.pending">
-    </app-item-status>
+    <app-item-status
+      label="pending"
+      [value]="control.pending"
+    ></app-item-status>
 
-    <app-item-status label="pristine" [value]="control.pristine">
-    </app-item-status>
+    <app-item-status
+      label="pristine"
+      [value]="control.pristine"
+    ></app-item-status>
 
-    <app-item-status label="dirty" [value]="control.dirty">
-    </app-item-status>
+    <app-item-status label="dirty" [value]="control.dirty"></app-item-status>
 
-    <app-item-status label="touched" [value]="control.touched">
-    </app-item-status>
+    <app-item-status
+      label="touched"
+      [value]="control.touched"
+    ></app-item-status>
 
-    <app-item-status label="untouched" [value]="control.untouched">
-    </app-item-status>
+    <app-item-status
+      label="untouched"
+      [value]="control.untouched"
+    ></app-item-status>
 
-    <app-item-status label="disabled" [value]="control.disabled">
-    </app-item-status>
+    <app-item-status
+      label="disabled"
+      [value]="control.disabled"
+    ></app-item-status>
 
-    <div class="col-span-3">
+    <div class="col-span-3 pt-2">
       <b>errors:</b>
-      <div class="text-red-500">
-        <pre>{{ control.errors | json }}</pre>
-      </div>
+      <ul class="grid md:grid-cols-2">
+        <li *ngFor="let error of errors" class="text-red-500">
+          <b>{{ error.name }}:</b>
+          <span>{{ error.value | json }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </ng-template>
