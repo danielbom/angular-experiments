@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common'
 
 // directives
 import { ButtonDirective } from './directives/button.directive'
+import { DragDirective } from './directives/drag/drag.directive'
+import { DragHandleDirective } from './directives/drag/drag-handle.directive'
 
 @NgModule({
-  declarations: [ButtonDirective],
+  declarations: [ButtonDirective, DragDirective, DragHandleDirective],
   imports: [CommonModule],
-  exports: [ButtonDirective],
+  exports: [ButtonDirective, DragDirective, DragHandleDirective],
 })
 export class SharedModule {}
