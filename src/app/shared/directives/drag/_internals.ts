@@ -50,4 +50,3 @@ export function coordCenter(position: Coord, dimension: Coord): Coord {
     y: (position.y + dimension.y) / 2,
   }
 }
-

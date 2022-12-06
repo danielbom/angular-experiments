@@ -3,27 +3,39 @@
   <form
     class="flex flex-col bg-white p-10 w-80 gap-5 mt-2 rounded"
     [formGroup]="formGroup"
+    (ngSubmit)="onSubmit()"
   >
     <input
       formControlName="username"
       class="p-3 border-b border-gray-400"
+      [ngClass]="{ 'border-red-500': isInvalid('username') }"
       type="text"
       name="username"
       placeholder="username"
       autocomplete="on"
+      required
     />
     <input
       formControlName="password"
       class="p-3 border-b border-gray-400"
+      [ngClass]="{ 'border-red-500': isInvalid('password') }"
       type="password"
       name="password"
       placeholder="password"
       autocomplete="on"
+      required
     />
-    <button class="p-3 border-none bg-teal-600 pointer text-white">
+    <button
+      type="submit"
+      class="p-3 border-none bg-teal-600 pointer text-white"
+    >
       Login
     </button>
-    <p class="text-red-500 text-center">This is an error!</p>
+    <p
+      class="text-red-500 text-center"
+      *ngIf="isInvalid()"
+      [innerHTML]="errorMessage"
+    ></p>
     <span class="text-sm text-center">
       Don't you have an account?
       <a
@@ -35,5 +47,3 @@
     </span>
   </form>
 </div>
-
-<app-form-state [control]="formGroup"></app-form-state>
