@@ -1,0 +1,14 @@
+<div #hover class="tooltip relative">
+  <ng-content select="app-tooltip-hover"></ng-content>
+
+  <div
+		#tooltip
+    class="tooltip-content absolute"
+    [style]="vars"
+  >
+    <div class="text-white text-center">
+      <ng-content select="app-tooltip-content"></ng-content>
+    </div>
+  </div>
+</div>
+

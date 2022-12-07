@@ -1,0 +1,22 @@
+.tooltip-content {
+  --sgn: clamp(-1, (var(--j) - var(--i))/.1, 1);
+  --dir: calc(var(--sgn)*(var(--j) - 2*var(--i))*180deg);
+
+  --oxy: calc(var(--i)*100%) calc(var(--j)*100%);
+  border: solid 0.75em transparent;
+  padding: 0.5em;
+
+  background: linear-gradient(currentcolor 0 0) padding-box, conic-gradient(from calc(var(--dir) - .5*90deg) at var(--oxy), currentcolor 90deg, transparent 0%) var(--oxy)/50% 50% no-repeat border-box;
+  color: #2b213a;
+  filter: drop-shadow(2px 2px 5px #363636);
+  transition: 0.35s filter;
+}
+
+.tooltip-content {
+	//opacity: 0;
+	transition: opacity 1s;
+}
+
+.tooltip:hover .tooltip-content {
+	opacity: 1;
+}
