@@ -10,6 +10,7 @@ import { DragHandleDirective } from './directives/drag/drag-handle.directive'
 import { TooltipComponent } from './components/tooltip/tooltip.component'
 import { TooltipHoverComponent } from './components/tooltip/tooltip.component'
 import { TooltipContentComponent } from './components/tooltip/tooltip.component'
+import { BackgroundSliderComponent } from './components/background-slider/background-slider.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TooltipContentComponent } from './components/tooltip/tooltip.component'
     TooltipComponent,
     TooltipHoverComponent,
     TooltipContentComponent,
+    BackgroundSliderComponent,
   ],
   imports: [CommonModule],
   exports: [
@@ -28,6 +30,7 @@ import { TooltipContentComponent } from './components/tooltip/tooltip.component'
     TooltipComponent,
     TooltipHoverComponent,
     TooltipContentComponent,
+    BackgroundSliderComponent,
   ],
 })
 export class SharedModule {}

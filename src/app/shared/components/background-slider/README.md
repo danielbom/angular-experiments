@@ -1,0 +1,1 @@
+Component based on background-slider component of [50projects50days](https://github.com/bradtraversy/50projects50days) github repository.

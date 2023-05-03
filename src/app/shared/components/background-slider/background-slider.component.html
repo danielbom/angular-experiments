@@ -1,0 +1,16 @@
+<div class="background-slider" [style.background-image]="images[current]" [class.full-page]="fullPage">
+  <div class="container">
+    <div
+      *ngFor="let image of images; let index = index"
+      class="slide"
+      [ngClass]="{ active: index === current }"
+      [style.background-image]="image"
+    ></div>
+  </div>
+
+  <button class="arrow left-arrow" (click)="onLeft()">
+  </button>
+
+  <button class="arrow right-arrow" (click)="onRight()">
+  </button>
+</div>
