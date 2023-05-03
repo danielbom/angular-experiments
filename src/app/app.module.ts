@@ -9,6 +9,7 @@ import { LayoutModule } from './components/layout/layout.module'
 
 import { PrivateModule as PrivatePagesModule } from './pages/private/private.module'
 import { PublicModule as PublicPagesModule } from './pages/public/public.module'
+import { ExamplesModule } from './pages/examples/examples.module'
 
 @NgModule({
   declarations: [AppComponent, ToastComponent],
@@ -20,6 +21,7 @@ import { PublicModule as PublicPagesModule } from './pages/public/public.module'
 
     PrivatePagesModule,
     PublicPagesModule,
+    ExamplesModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
